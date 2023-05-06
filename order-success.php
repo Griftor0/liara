@@ -73,9 +73,9 @@
             <div class="order-item">
             </div>
             <div class="order-buttons">
-                        <button class="button" type="submit" id="order-action" onclick="document.location='index.php'">На главную</button>
-                        <button class="button" type="submit" id="order-action" onclick="document.location='index.php#contacts'">Контакты</button>
-                        <button class="button" type="submit" id="order-action" onclick="document.location='index.php#collections'">Коллекции</button>
+                        <button class="button" type="submit" id="order-action" onclick="document.location='index.html'">На главную</button>
+                        <button class="button" type="submit" id="order-action" onclick="document.location='index.html#contacts'">Контакты</button>
+                        <button class="button" type="submit" id="order-action" onclick="document.location='index.html#collections'">Коллекции</button>
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
         <h2 class="sub-title">КОНТАКТЫ</h2>
         <div class="f-item">
             <div class="f-buttons">
-                <button class="button" type="submit" id="con-action" onclick="document.location='index.html/#application'">Оставить заявку</button>
+                <button class="button" type="submit" id="con-action" onclick="document.location='index.html#application'">Оставить заявку</button>
                 <button class="button" type="submit" id="con-action" onclick="document.location='https://2gis.ru/directions/points/%7C37.752172%2C55.719576%3B4504235282609057?m=60.32518%2C56.950069%2F5'">Как проехать</button>    
                 <button class="button" type="submit" id="con-action" onclick="document.location='policy/privacy.txt'">Конфиденциальность</button>    
             </div>

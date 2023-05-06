@@ -1,4 +1,4 @@
-document.getElementById("main-action").onclick=function (){
+/*document.getElementById("main-action").onclick=function (){
     document.getElementById("collections").scrollIntoView({behavior:"smooth"});
 }
 
@@ -7,7 +7,7 @@ for(var i=0; i<buttons.length; i++) {
     buttons[i].onclick=function () {
         document.getElementById("price").scrollIntoView({behavior:"smooth"});
     }
-}
+}*/
 
 document.getElementById("application-action").onclick=function (){
     if (document.getElementById("name").value==="") {

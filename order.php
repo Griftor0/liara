@@ -12,28 +12,28 @@
         <nav class="menu1">
             <ul>
                 <li class="menu1-item">
-                    <a href="index.php#collections">КОЛЛЕКЦИИ</a>
+                    <a href="index.html#collections">КОЛЛЕКЦИИ</a>
                 </li>
                 <li class="menu1-item">
-                    <a href="index.php#about">О НАС</a>
+                    <a href="index.html#about">О НАС</a>
                 </li>
                 <li class="menu1-item">
-                    <a href="index.php#advantages">ПРЕИМУЩЕСТВА</a>
+                    <a href="index.html#advantages">ПРЕИМУЩЕСТВА</a>
                 </li>
             </ul>
         </nav>
         <div class="logo">
             <center>
-                <a href="index.php"><img src="images/logo.png" alt="logo"></a>
+                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
             </center>
         </div>
         <nav class="menu2">
             <ul>
                 <li class="menu2-item">
-                    <a href="index.php#application">ОСТАВИТЬ ЗАЯВКУ</a>
+                    <a href="index.html#application">ОСТАВИТЬ ЗАЯВКУ</a>
                 </li>
                 <li class="menu2-item">
-                    <a href="index.php#contacts">КОНТАКТЫ</a>
+                    <a href="index.html#contacts">КОНТАКТЫ</a>
                 </li>
                 <li class="menu2-item">
                     <div class="wrap">
@@ -131,7 +131,7 @@ $conn = mysqli_connect("localhost", "root", "root", "liara");
         <h2 class="sub-title">КОНТАКТЫ</h2>
         <div class="f-item">
             <div class="f-buttons">
-                <button class="button" type="submit" id="con-action" onclick="document.location='index.php/#application'">Оставить заявку</button>
+                <button class="button" type="submit" id="con-action" onclick="document.location='index.html#application'">Оставить заявку</button>
                 <button class="button" type="submit" id="con-action" onclick="document.location='https://2gis.ru/directions/points/%7C37.752172%2C55.719576%3B4504235282609057?m=60.32518%2C56.950069%2F5'">Как проехать</button>    
                 <button class="button" type="submit" id="con-action" onclick="document.location='policy/privacy.txt'">Конфиденциальность</button>    
             </div>

@@ -11,7 +11,7 @@
         <nav class="menu1">
             <ul>
                 <li class="menu1-item">
-                    <a href="#collections">КОЛЛЕКЦИИ</a>
+                    <a href="col.php">КОЛЛЕКЦИИ</a>
                 </li>
                 <li class="menu1-item">
                     <a href="#about">О НАС</a>
@@ -67,45 +67,6 @@
                     <button class="button" id="main-action">К ПОКУПКАМ</button>
                 </div>
            </center>
-        </div>
-    </div>
-</section>
-
-<?php
-    $conn = mysqli_connect("localhost", "root", "root", "liara");
-    if(!$conn){
-        die("Ошибка подключения к БД: " . mysqli_connect_error());
-    }
-    //$qr_result = mysqli_query($conn, "select * from collection;");
-    //$data = mysqli_fetch_array($qr_result);
-?>
-
-<section class="collection" id="collections">
-    <div class="container">
-        <h2 class="sub-title">КОЛЛЕКЦИИ</h2>
-        <div class="col-items">
-        <?php $sql = "SELECT * FROM collection";
-            $result = mysqli_query($conn, $sql);
-            foreach($result as $row):
-            ?> 
-            <div class="col-item">
-                <div class="col-item-image">
-                    <img src="images/col<?=$row['id']?>.png" alt="Image <?=$row['id']?>">
-                </div>
-                <div class="col-item-title">
-                    <?echo $row["name"];?>
-                </div>
-                <div class="col-item-info">
-                    <div class="col-item-point">
-                        <div><?echo $row["descr"];?></div>
-                    </div>
-                </div>
-                <div class="col-item-action">
-                    <button class="button col-button" id="<?=$row['id']?>">ПРОСМОТРЕТЬ</button>
-                </div>
-            </div>
-
-            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -220,7 +181,7 @@
         <h2 class="sub-title">КОНТАКТЫ</h2>
         <div class="f-item">
             <div class="f-buttons">
-                <button class="button" type="submit" id="con-action" onclick="document.location='index.php/#application'">Оставить заявку</button>
+                <button class="button" type="submit" id="con-action" onclick="document.location='index.html#application'">Оставить заявку</button>
                 <button class="button" type="submit" id="con-action" onclick="document.location='https://2gis.ru/directions/points/%7C37.752172%2C55.719576%3B4504235282609057?m=60.32518%2C56.950069%2F5'">Как проехать</button>    
                 <button class="button" type="submit" id="con-action" onclick="document.location='policy/privacy.txt'">Конфиденциальность</button>    
             </div>
@@ -248,23 +209,6 @@
 </footer>
 
 <script src="scripts/script.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>    
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $('.col-button').click(function () {
-        var id = $(this).attr('id');
-        $.ajax({
-            type: "POST",
-            url: 'collection.php',
-            data: {id_col: id},
-            success: function (response) {
-                $('body').html(response);
-            }
-        });
-        return false;
-    });
-</script>
 </script>
 </body>
 </html>

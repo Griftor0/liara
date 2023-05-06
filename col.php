@@ -6,13 +6,12 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-
 <header class="header">
     <div class="container">
         <nav class="menu1">
             <ul>
                 <li class="menu1-item">
-                    <a href="index.html#collections">КОЛЛЕКЦИИ</a>
+                    <a href="col.php">КОЛЛЕКЦИИ</a>
                 </li>
                 <li class="menu1-item">
                     <a href="index.html#about">О НАС</a>
@@ -37,8 +36,10 @@
                 </li>
                 <li class="menu2-item">
                     <div class="wrap">
-                        <form action="" autocomplete="on">
+                        <form action="http://google.com/search" autocomplete="on" target="_blank">
                           <input id="search" name="search" type="text" placeholder="Что ищете?">
+                         <!-- <input type="search" name="q"> NEW -->
+                          <input type="hidden" name="as_sitesearch" value="http://127.0.0.1:5500"><!-- NEW -->
                           <input id="search_submit" value="Researcher" type="submit">
                         </form>
                     </div>                
@@ -47,6 +48,7 @@
                     <div class="bag">
                         <form action="bag.php" autocomplete="on">
                           <input id="bag_submit" value="ToBag" type="submit">
+                          <span class="badge basker_kol"></span>
                         </form>
                     </div>                
                 </li>
@@ -55,47 +57,39 @@
     </div>
 </header>
 
-<section class="coll" id="coll">
+<?php
+    $conn = mysqli_connect("localhost", "root", "root", "liara");
+    if(!$conn){
+        die("Ошибка подключения к БД: " . mysqli_connect_error());
+    }
+?>
+
+<section class="collection" id="collections">
     <div class="container">
-        <?php
-        $id = $_POST['id_col'];
-        $con = mysqli_connect("localhost", "root", "root", "liara");
-        if (!$con) {
-            echo("Ошибка!");
-        }
-        $sqll = "SELECT * FROM collection where id='$id'";
-        $resultt = mysqli_query($con, $sqll);
-        $data = mysqli_fetch_array($resultt);
-        $name = $data["name"];
-        ?>
-        <h2 class="sub-title"><?= $name ?></h2>
-        <div class="coll-items">
-        <?php
-        $conn = mysqli_connect("localhost", "root", "root", "liara");
-        $sql = "SELECT * FROM goods where id_collection='$id'";
-        $result = mysqli_query($conn, $sql);
-        foreach ($result as $row):
-        ?>
-            <div class="coll-item">
-                <div class="coll-item-image">
-                    <img src="images/m<?= $row['vendor_code'] ?><?= $row['color'] ?>.png" alt="Image <?= $row['vendor_code'] ?>">
+        <h2 class="sub-title">КОЛЛЕКЦИИ</h2>
+        <div class="col-items">
+        <?php $sql = "SELECT * FROM collection";
+            $result = mysqli_query($conn, $sql);
+            foreach($result as $row):
+            ?> 
+            <div class="col-item">
+                <div class="col-item-image">
+                    <img src="images/col<?=$row['id']?>.png" alt="Image <?=$row['id']?>">
                 </div>
-                <div class="coll-item-title">
-                    МОДЕЛЬ <?= $row["vendor_code"] ?>
+                <div class="col-item-title">
+                    <?echo $row["name"];?>
                 </div>
-                <div class="coll-item-info">
-                    <div class="coll-item-point">
-                        <div>Состав: <?= $row["material"] ?></div>
-                        <div>Размерный ряд: <?= $row["size"] ?></div>
-                        <div>Цвет: <?= $row["color"] ?></div>
-                        <div>Цена по запросу</div>
+                <div class="col-item-info">
+                    <div class="col-item-point">
+                        <div><?echo $row["descr"];?></div>
                     </div>
                 </div>
-                <div class="coll-item-action">
-                    <button class="button coll-button" id="<?= $row["id"] ?>">ЗАКАЗАТЬ</button>
+                <div class="col-item-action">
+                    <button class="button col-button" id="<?=$row['id']?>">ПРОСМОТРЕТЬ</button>
                 </div>
             </div>
-        <?php endforeach; ?>
+
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -133,22 +127,22 @@
 </footer>
 
 <script src="scripts/script.js"></script>
+</script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $('.coll-button').click(function () {//клип на кнопку
-        var id = $(this).attr('id'); //получаем id этой кнопки
-            $.ajax({//передаем ajax-запросом данные
-                type: "POST", //метод передачи данных
-                url: 'addtocart.php',//php-файл для обработки данных
-                data: {id_tov: id},//передаем наши данные
-                success: function(data) {
-                    var id = data.id; // предположим, что id приходит в ответе сервера
-                    $('.bag-item[id="'+id+'"]').css('display', 'none');
-                    alert('Товар добавлен в корзину.');
-                }
-            });
+    $('.col-button').click(function () {
+        var id = $(this).attr('id');
+        $.ajax({
+            type: "POST",
+            url: 'collection.php',
+            data: {id_col: id},
+            success: function (response) {
+                $('body').html(response);
+            }
+        });
+        return false;
     });
 </script>
-</body>
-</html>
