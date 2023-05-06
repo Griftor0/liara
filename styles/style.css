@@ -1,0 +1,985 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: SF UI Display;
+    src: url("../fonts/SFUIDisplay-Regular.ttf");
+}
+
+@font-face {
+    font-family: SF UI Display;
+    src: url("../fonts/SFUIDisplay-Thin.ttf");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: SF UI Display;
+    src: url("../fonts/SFUIDisplay-Light.ttf");
+    font-weight: 300;
+}
+
+body {
+    font-family: SF UI Display, sans-serif;
+}
+
+.header {
+    background-color: #343434;
+    padding: 45px;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+}
+
+.menu1 ul  {
+    list-style: none;
+    display: flex;
+    margin-right: 30px;
+}
+
+.menu1-item {
+    margin-right: 60px;
+}
+
+.menu1-item a {
+    font-size: 16px;
+    font-weight: 200;
+    color: #EDEDED;
+    text-decoration: none;
+    border-bottom: 1px solid #343434;
+    transition: border-color 0.5s;
+}
+
+.menu1-item a:hover {
+    border-bottom: 1px solid #EDEDED;
+    transition: border-color 0.5s;
+ }
+
+.logo img {
+    vertical-align: bottom;
+    margin: 0;
+}
+
+.menu2 ul  {
+    margin-left: 25px;
+    list-style: none;
+    display: flex;
+}
+
+.menu2-item {
+    margin-left: 65px;
+}
+
+.menu2-item a {
+    font-size: 16px;
+    font-weight: 200;
+    color: #EDEDED;
+    text-decoration: none;
+    border-bottom: 1px solid #343434;
+    transition: border-color 0.5s;
+}
+
+.menu2-item a:hover {
+   border-bottom: 1px solid #EDEDED;
+   transition: border-color 0.5s;
+}
+
+.wrap {
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    float: right;
+    padding: 0;
+    position: relative;
+  }
+  
+  .wrap input[type="text"] {
+    height: 20px;
+    font-size: 16px;
+    display: inline-block;
+    font-family: "SF UI Display";
+    font-style: normal;
+    font-weight: 300;
+    line-height: 19px;
+    border: none;
+    outline: none;
+    color: #EDEDED;
+    padding: 3px;
+    padding-right: 60px;
+    width: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    z-index: 3;
+    transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    cursor: pointer;
+  }
+  
+  .wrap input[type="text"]:focus:hover {
+    border-bottom: 1px solid #ededed;
+  }
+  
+  .wrap input[type="text"]:focus {
+    width: 330px;
+    z-index: 1;
+    border-bottom: 1px solid #ededed;
+    cursor: text;
+    background-color: #343434;
+  }
+  .wrap input[type="submit"] {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    color:red;
+    float: right;
+    background: url("../images/search.png") center center no-repeat;
+    text-indent: -10000px;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity .4s ease;
+  }
+  .wrap input[type="submit"]:hover {
+    opacity: 0.8;
+  }
+
+.bag {
+    display: inline-block;
+    position: relative;
+    float: right;
+    padding: 0;
+    position: relative;
+    margin-left: 13px;
+}
+
+.bag input[type="submit"] {
+    height: 20px;
+    background: url("../images/bag.png") center center no-repeat;
+    border: none;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity .4s ease;
+}
+
+.bag input[type="submit"]:hover {
+    opacity: 0.8;
+  }
+
+.bag input[value="ToBag"] {
+    color: transparent;
+  }
+
+.main {
+    background-image: url("../images/background.png");
+    background-position: center;
+    background-size: cover;
+    padding: 250px 0 200px 0;
+}
+
+.main-info .main-text {
+    max-width: 502px;
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 130%;
+    color: #ededed;
+    margin-bottom: 10px;
+}
+
+.main-info .main-title {
+    max-width: 855px;
+    font-weight: 200;
+    font-size: 85px;
+    line-height: 110%;
+    color: #ededed;
+    margin-bottom: 25px;
+}
+
+.button {
+    
+    width: 334px;
+    height: 64px;
+    background: transparent;
+    border: 3px solid #EDEDED;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 38px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #ededed;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: #343434;
+    border-color: #343434;
+}
+
+.main {
+    background-color: #343434;
+}
+
+.collection {
+    padding: 100px;
+    background-color: #EDEDED;
+}
+
+.sub-title {
+    font-weight: 200;
+    font-size: 60px;
+    line-height: 70px;
+    color: #353535;
+}
+
+.col-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.col-item {
+    max-width: 380px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.col-item-image img {
+    max-width: 380px;
+    vertical-align: bottom;
+    transition: all .3s;
+}
+
+.col-item-title {
+    font-size: 40px;
+    line-height: 150%;
+    color: #353535;
+    padding: 15px 0 17px 0;
+}
+
+.col-item-info {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.col-item-point {
+    width: 380px;
+    height: 150px;
+}
+
+.col-item-action {
+    margin-top: 0;
+}
+
+.col-item-action .button {
+    width: 380px;
+    height: 67px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    padding: 15px 72px 15px 72px;
+    background: transparent;
+    border: 3px solid #343434;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #343434;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.col-item-action .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #EDEDED;
+    background: #343434;
+    border-color: #343434;
+}
+
+.about {
+    padding: 100px;
+    overflow: hidden;
+    background-color: #EDEDED;
+}
+
+.about .container {
+    position: relative;
+    padding-bottom: 121px;
+}
+
+.about .sub-title {
+    margin-bottom: 48px;
+    font-weight: 200;
+    font-size: 65px;
+}
+
+.about .about-title {
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.about-text {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 130%;
+    color: #343434;
+    margin-bottom: 25px;
+    width: 650px;
+    height: 150px;
+}
+
+.about .button {
+    width: 100%;
+    width: 482px;
+    height: 67px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    padding: 15px 72px 15px 72px;
+    background: transparent;
+    border: 3px solid #343434;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #343434;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.about .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #EDEDED;
+    background: #343434;
+    border-color: #343434;
+}
+
+.about-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 60px;
+}
+
+.advantages {
+    padding: 100px;
+    overflow: hidden;
+    background-color: #EDEDED;
+}
+
+.advantages .container {
+    position: relative;
+    padding-bottom: 121px;
+}
+
+.advantages .sub-title {
+    margin-bottom: 48px;
+    font-weight: 200;
+    font-size: 65px;
+}
+
+.adv-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.advantages .adv-title {
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.advantages .adv-text {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 130%;
+    color: #343434;
+   /* margin-bottom: 25px;*/
+    width: 420px;
+    height: 120px;
+}
+
+/*.advantages .adv-image {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-between;
+    top: 63px;
+    left: 0;
+    vertical-align: top;
+    transition: all .3s;
+    margin-right: 453px;
+}*/
+
+.advantages .button {
+    width: 100%;
+    width: 482px;
+    height: 67px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    padding: 15px 72px 15px 72px;
+    background: transparent;
+    border: 3px solid #343434;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #343434;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.advantages .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #EDEDED;
+    background: #343434;
+    border-color: #343434;
+}
+
+.adv-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 60px;
+}
+
+.application {
+    padding: 100px;
+    overflow: hidden;
+    background-color: #EDEDED;
+}
+
+.application .container {
+    position: relative;
+    padding-bottom: 121px;
+}
+
+.application .sub-title {
+    margin-bottom: 48px;
+    font-weight: 200;
+    font-size: 65px;
+}
+
+.application .application-title {
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.application-text {
+    font-size: 18px;
+    line-height: 130%;
+    color: #343434;
+    margin-bottom: 25px;
+    width: 520px;
+    height: 80px;
+}
+
+.application-form {
+    max-width: 482px;
+}
+
+.application-input {
+    padding: 22px 18px;
+    width: 482px;
+    height: 65px;
+    background: #EDEDED;
+    border: 1px solid #343434;
+    box-sizing: border-box;
+
+    font-size: 16px;
+    color: #343434;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.application-input::placeholder {
+    color: #343434;
+}
+
+.application .button {
+    width: 100%;
+    width: 482px;
+    height: 67px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    padding: 15px 72px 15px 72px;
+    background: transparent;
+    border: 3px solid #343434;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #343434;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.application .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #EDEDED;
+    background: #343434;
+    border-color: #343434;
+}
+
+.application-image {
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+    top: 160px;
+}
+
+.footer {
+    background-color: #343434;
+    color: #EDEDED;
+    padding: 25px 0;
+}
+
+.footer .container {
+    /*display: flex;
+    align-items: center;*/
+    padding: 50px 100px 50px 100px;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.footer .sub-title {
+    margin-bottom: 48px;
+    font-weight: 200;
+    font-size: 65px;
+    color: #EDEDED;
+}
+
+.footer .f-items {
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.footer .con-text {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 130%;
+    color: #ededed;
+    margin-bottom: 16px;
+    /*width: 520px;
+    height: 80px;*/
+}
+
+.footer .f-end {
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 130%;
+    color: #a3a3a3;
+    margin-bottom: 16px;
+}
+
+.footer .f-buttons {
+    margin-left: 760px;
+    position: absolute;
+}
+
+.footer .button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    width: 100%;
+    width: 550px;
+    height: 67px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    /*padding: 15px 72px 15px 72px;*/
+    padding: 15px 80px;
+    background: transparent;
+    border: 3px solid #ededed;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #ededed;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.footer .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #343434;
+    background: #ededed;
+    border-color: #ededed;
+}
+
+.coll{
+    padding: 100px;
+    background-color: #EDEDED;
+}
+
+.coll-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.coll-item {
+    max-width: 300px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.coll-item-image img {
+    vertical-align: bottom;
+    transition: all .3s;
+}
+
+.coll-item-title {
+    font-size: 35px;
+    line-height: 150%;
+    color: #353535;
+    padding: 20px 0 13px 0;
+}
+
+.coll-item-info {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.coll-item-point {
+    width: 350px;
+    height: 100px;
+}
+
+.coll-item-action {
+    margin-top: 0;
+}
+
+.coll-item-action .button {
+    margin-top: 20px;
+    width: 300px;
+    height: 65px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    padding: 15px 0 15px 0;
+    background: transparent;
+    border: 3px solid #343434;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #343434;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.coll-item-action .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #EDEDED;
+    background: #343434;
+    border-color: #343434;
+}
+
+.in_bag{
+    padding: 100px;
+    background-color: #EDEDED;
+}
+
+.non-sub-title {
+    margin: 100px;
+    font-weight: 200;
+    font-size: 65px;
+}
+
+.bag-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.bag-item {
+    max-width: 300px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.bag-item-image img {
+    vertical-align: bottom;
+    transition: all .3s;
+}
+
+.bag-item-title {
+    font-size: 35px;
+    line-height: 150%;
+    color: #353535;
+    padding: 20px 0 13px 0;
+}
+
+.bag-item-info {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.bag-item-point {
+    width: 300px;
+    height: 50px;
+}
+
+.bag-item-point .count-product {
+    width: 285px;
+    height: 25px;
+    padding: 5px;
+    border-color: #343434;
+    background-color: #EDEDED;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.bag-item-action {
+    margin-top: 0;
+}
+
+.bag-item-action .button {
+    width: 300px;
+    height: 55px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    margin-top: 10px;
+    padding: 12px 0 15px 0;
+    background: transparent;
+    border: 3px solid #343434;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 25px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #343434;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.bag-item-action .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #EDEDED;
+    background: #343434;
+    border-color: #343434;
+}
+
+.bag-action .button {
+    width: 350px;
+    height: 65px;
+    margin-top: 50px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    padding: 15px 0 15px 0;
+    background: transparent;
+    border: 3px solid #343434;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #343434;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.bag-action .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #EDEDED;
+    background: #343434;
+    border-color: #343434;
+}
+
+.order {
+    padding: 100px;
+    overflow: hidden;
+    background-image: url("images/order-image.png");
+    background-color: #EDEDED;
+}
+
+.order .container {
+    position: relative;
+    padding-bottom: 121px;
+}
+
+.order .sub-title {
+    margin-bottom: 48px;
+    font-weight: 200;
+    font-size: 65px;
+}
+
+.order .order-title {
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.order .order-items {
+    overflow: hidden;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.order-text {
+    font-size: 18px;
+    line-height: 130%;
+    color: #343434;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    width: 374px;
+    height: 52px;
+}
+
+.order-form {
+    max-width: 482px;
+}
+
+.order-input {
+    padding: 22px 18px;
+    width: 482px;
+    height: 65px;
+    background: #EDEDED;
+    border: 1px solid #343434;
+    box-sizing: border-box;
+
+    font-size: 16px;
+    color: #343434;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.order-input::placeholder {
+    color: #343434;
+}
+
+.order .order-buttons {
+    margin-left: 760px;
+    position: absolute;
+}
+
+.order .button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    
+    width: 100%;
+    width: 482px;
+    height: 67px;
+   /* width: 100%;*/
+    /* Сверху | Справа | Снизу | Слева */
+    padding: 15px 72px 15px 72px;
+    background: transparent;
+    border: 3px solid #343434;
+    box-sizing: border-box;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #343434;
+
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.order .button:hover {
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+    cursor: pointer;
+    color: #EDEDED;
+    background: #343434;
+    border-color: #343434;
+}
+
+/*.order-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 100px;
+    z-index: 1;
+}*/

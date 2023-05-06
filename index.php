@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Liara Moda</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <nav class="menu1">
+            <ul>
+                <li class="menu1-item">
+                    <a href="#collections">КОЛЛЕКЦИИ</a>
+                </li>
+                <li class="menu1-item">
+                    <a href="#about">О НАС</a>
+                </li>
+                <li class="menu1-item">
+                    <a href="#advantages">ПРЕИМУЩЕСТВА</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <center>
+                <a href="index.php"><img src="images/logo.png" alt="logo"></a>
+            </center>
+        </div>
+        <nav class="menu2">
+            <ul>
+                <li class="menu2-item">
+                    <a href="#application">ОСТАВИТЬ ЗАЯВКУ</a>
+                </li>
+                <li class="menu2-item">
+                    <a href="#contacts">КОНТАКТЫ</a>
+                </li>
+                <li class="menu2-item">
+                    <div class="wrap">
+                        <form action="http://google.com/search" autocomplete="on" target="_blank">
+                          <input id="search" name="search" type="text" placeholder="Что ищете?">
+                         <!-- <input type="search" name="q"> NEW -->
+                          <input type="hidden" name="as_sitesearch" value="http://127.0.0.1:5500"><!-- NEW -->
+                          <input id="search_submit" value="Researcher" type="submit">
+                        </form>
+                    </div>                
+                </li>
+                <li>
+                    <div class="bag">
+                        <form action="bag.php" autocomplete="on">
+                          <input id="bag_submit" value="ToBag" type="submit">
+                          <span class="badge basker_kol"></span>
+                        </form>
+                    </div>                
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="main">
+    <div class="container">
+        <div class="main-info">
+            <center>
+                <div class="main-text">НОВАЯ КОЛЛЕКЦИЯ</div>
+                <h1 class="main-title">ОСЕНЬ-ЗИМА 2023</h1>
+                <div class="main-action">
+                    <button class="button" id="main-action">К ПОКУПКАМ</button>
+                </div>
+           </center>
+        </div>
+    </div>
+</section>
+
+<?php
+    $conn = mysqli_connect("localhost", "root", "root", "liara");
+    if(!$conn){
+        die("Ошибка подключения к БД: " . mysqli_connect_error());
+    }
+    //$qr_result = mysqli_query($conn, "select * from collection;");
+    //$data = mysqli_fetch_array($qr_result);
+?>
+
+<section class="collection" id="collections">
+    <div class="container">
+        <h2 class="sub-title">КОЛЛЕКЦИИ</h2>
+        <div class="col-items">
+        <?php $sql = "SELECT * FROM collection";
+            $result = mysqli_query($conn, $sql);
+            foreach($result as $row):
+            ?> 
+            <div class="col-item">
+                <div class="col-item-image">
+                    <img src="images/col<?=$row['id']?>.png" alt="Image <?=$row['id']?>">
+                </div>
+                <div class="col-item-title">
+                    <?echo $row["name"];?>
+                </div>
+                <div class="col-item-info">
+                    <div class="col-item-point">
+                        <div><?echo $row["descr"];?></div>
+                    </div>
+                </div>
+                <div class="col-item-action">
+                    <button class="button col-button" id="<?=$row['id']?>">ПРОСМОТРЕТЬ</button>
+                </div>
+            </div>
+
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="sub-title">О НАС</h2>
+        <div class="about-title">
+            КАК ЖЕ ВСЕ НАЧАЛОСЬ?
+        </div>   
+        <div class="about-text">
+            The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. 
+        </div>
+        <div class="about-text">
+            If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. 
+        </div>
+        <div class="about-text">
+            Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
+        </div>
+        <button class="button" type="button" id="about-action">Преимущества</button>
+        <img src="images/about_image1.png" alt="About" class="about-image">
+    </div>
+</section>
+
+<section class="advantages" id="advantages">
+    <div class="container">
+        <h2 class="sub-title">ПРЕИМУЩЕСТВА</h2>
+            <div class="adv-items">
+                <div class="adv-item">
+                    <div class="adv-title">
+                        НИЗКАЯ ЗАКУПОЧНАЯ ЦЕНА
+                    </div>   
+                    <div class="adv-text">
+                        Благодаря собственному производству мы удерживаем прежние цены, сохраняя при этом высочайшее качество наших товаров.
+                    </div>   
+                    
+                </div>
+                <div class="adv-item">
+                    <div class="adv-title">
+                        ДОСТАВКА ПО РФ И СНГ
+                    </div>   
+                    <div class="adv-text">
+                        Мы отправляем ваш заказ любой удобной вам транспортной компанией, а расходы на доставку до ТК берем на себя.
+                    </div>   
+                   
+                </div>
+                <div class="adv-item">
+                    <div class="adv-title">
+                        ГАРАНТИЯ КАЧЕСТВА
+                    </div>   
+                    <div class="adv-text">
+                        Мы всегда уверены в качестве нашей продукции, поэтому мы без проблем заменим бракованное изделие, покрыв все расходы за доставку.
+                    </div>  
+                    
+                </div>
+                <div class="adv-item">
+                    <div class="adv-title">
+                        НОВЫЕ КОЛЛЕКЦИИ
+                    </div>   
+                    <div class="adv-text">
+                        Ежегодно мы запускаем две новые коллекции, чтобы Вы всегда радовали своих покупателей новинками.
+                    </div>   
+                   
+                </div>
+                <div class="adv-item">
+                    <div class="adv-title">
+                        СИСТЕМА СКИДОК
+                    </div>   
+                    <div class="adv-text">
+                        Для наших постоянных покупателей действует система персональных скидок.
+                    </div>   
+                    
+                </div>
+                <div class="adv-item">
+                    <div class="adv-title">
+                        ТОВАРНЫЙ ЗНАК
+                    </div>   
+                    <div class="adv-text">
+                        Наши изделия проходят сертификацию каждый год в системе «Честный ЗНАК».
+                    </div>   
+                    
+                </div>
+            </div>
+            <button class="button" type="button" id="adv-action">ОСТАВИТЬ ЗАЯВКУ</button>
+    </div>
+</section>
+
+<section class="application" id="application">
+    <div class="container">
+        <h2 class="sub-title">ОСТАВИТЬ ЗАЯВКУ</h2>
+        <div class="application-title">
+            ЖЕЛАЕТЕ СОТРУДНИЧАТЬ С НАМИ?
+        </div>   
+        <div class="application-text">
+            Или хотите получить новый каталог? Все просто — оставляйте заявку, заполнив все поля в форме ниже, и наш менеджер свяжется с вами уже в ближайшее время!*
+        </div>
+        <div class="application-text">
+            *Продажа нашей продукции осуществляется только для оптовых клиентов. Минимальная сумма закупа — 50.000 ₽.
+        </div>    
+        <form action="form.php" class="application-form" method="POST">
+            <input type="text" class="application-input" id="name" name="name" placeholder="ФИО*">
+            <input type="text" class="application-input" id="phone" name="phone" placeholder="Телефон*">
+            <input type="text" class="application-input" id="mail" name="mail" placeholder="E-mail*">
+            <button class="button" type="submit" id="application-action">Отправить</button>
+        </form>
+        <img src="images/app_image.png" alt="Application" class="application-image">
+    </div>
+</section>
+
+<footer class="footer" id="contacts">
+    <div class="container">
+        <h2 class="sub-title">КОНТАКТЫ</h2>
+        <div class="f-item">
+            <div class="f-buttons">
+                <button class="button" type="submit" id="con-action" onclick="document.location='index.php/#application'">Оставить заявку</button>
+                <button class="button" type="submit" id="con-action" onclick="document.location='https://2gis.ru/directions/points/%7C37.752172%2C55.719576%3B4504235282609057?m=60.32518%2C56.950069%2F5'">Как проехать</button>    
+                <button class="button" type="submit" id="con-action" onclick="document.location='policy/privacy.txt'">Конфиденциальность</button>    
+            </div>
+        </div>
+        <div class="f-item">
+            <div class="con-text">
+                <div>+7 915 093-43-18</div>
+                <div>ㅤ</div>
+                <div>info@liaramoda.ru</div>
+                <div>ㅤ</div>
+                <div>Москва, улица Стахановская, 18/2</div>
+                <div>ㅤ</div>
+                <div>ИНН 7721827128</div>
+                <div>ㅤ</div>
+                <div>Расчетный счет 40702810338000065196</div>
+                <div>ㅤ</div>
+            </div>
+        </div>
+        <div class="f-item">
+            <div class="f-end">
+                <div>© 2023   ООО «Статус».   Все права защищены</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="scripts/script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('.col-button').click(function () {
+        var id = $(this).attr('id');
+        $.ajax({
+            type: "POST",
+            url: 'collection.php',
+            data: {id_col: id},
+            success: function (response) {
+                $('body').html(response);
+            }
+        });
+        return false;
+    });
+</script>
+</script>
+</body>
+</html>
